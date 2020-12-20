@@ -115,7 +115,7 @@ This project aims to help out people migrating their existing dockerized, *mmap*
     - `for` loops slightly adjusted for both "rocketchat" and "mongo-init-replica" to run them endlessly
     - Adjusted `command` property for "mongo" service:
       - `while` loop to check for initiated WiredTiger migration (in `$MONGO_DATA_DIR/WiredTiger`)
-      - Use [custom entry](./docker/entrypoint.sh) that applies the migration
+      - Use [custom entrypoint](./docker/entrypoint.sh) that applies the migration
       - Use `--storageEngine=wiredTiger` switch instead of `--storageEngine=mmapv1`
     - Added "migrator" service
 
