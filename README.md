@@ -42,10 +42,10 @@ This project aims to help out people migrating their existing dockerized, *mmap*
     docker-compose stop
     ```
 
-3. [Download this repository](https://github.com/RocketChat/mmap-to-wiredtiger-migration-tests/archive/main.zip) or clone it using git and extract it to `/opt/rocketchat-migration`: 
+3. [Download this repository](https://github.com/RocketChat/docker-mmap-to-wiredtiger-migration/archive/main.zip) or clone it using `git` and extract it to `/opt/rocketchat-migration`: 
     
     ```bash
-    git clone https://github.com/RocketChat/mmap-to-wiredtiger-migration-tests /opt/rocketchat-migration
+    git clone https://github.com/RocketChat/docker-mmap-to-wiredtiger-migration /opt/rocketchat-migration
     ```
 
 4. Copy the `docker/` folder that holds the Dockerfile of the custom migrator image into your existing compose folder:
