@@ -31,7 +31,7 @@ done
 echo "Remove existing mmap database files"
 rm -rf /data/db/*
 
-wiredTigerArgs="mongod --smallfiles --oplogSize 128 --replSet rs0 --storageEngine=wiredWiger --bind_ip_all"
+wiredTigerArgs="mongod --smallfiles --oplogSize 128 --replSet rs0 --storageEngine=wiredTiger --bind_ip_all"
 wiredTigerArgsArr=($wiredTigerArgs)
 echo "Start wiredTiger instance in background..."
 exec $wiredTigerArgsArr &
@@ -41,6 +41,9 @@ echo "Wait until wiredTiger instance is ready..."
 while ! mongo --eval "db.runCommand( { serverStatus: 1 } )"; do
     sleep 1;
 done
+
+echo "preparing empty db so we can restore"
+mongo --eval "rs.initiate()"
 
 echo "Restore dump into wiredTiger instance..."
 mongorestore --drop --archive=/tmp/mmap --gzip --noIndexRestore
