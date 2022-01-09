@@ -31,7 +31,7 @@ done
 echo "Remove existing mmap database files"
 rm -rf /data/db/*
 
-wiredTigerArgs="mongod --smallfiles --oplogSize 128 --replSet rs0 --storageEngine=wiredWiger --bind_ip_all"
+wiredTigerArgs="mongod --smallfiles --oplogSize 128 --replSet rs0 --storageEngine=wiredTiger --bind_ip_all"
 wiredTigerArgsArr=($wiredTigerArgs)
 echo "Start wiredTiger instance in background..."
 exec $wiredTigerArgsArr &
