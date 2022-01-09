@@ -42,6 +42,9 @@ while ! mongo --eval "db.runCommand( { serverStatus: 1 } )"; do
     sleep 1;
 done
 
+echo "preparing empty db so we can restore"
+mongo --eval "rs.initiate()"
+
 echo "Restore dump into wiredTiger instance..."
 mongorestore --drop --archive=/tmp/mmap --gzip --noIndexRestore
 
